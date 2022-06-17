@@ -26,7 +26,7 @@ const Products = () => {
             products.map(product => {
                     return (
                         <Col key={product.sku} span={6}>
-                            <Card bordered={true}>
+                            <Card bordered={true} style={{borderColor: "black"}}>
                                 <Checkbox  checked={productsForDelete.includes(product)} className={'delete-checkbox'} onChange={(event) => onChange(event, product)}/>
                                 <Row>
                                     <Col offset={8}>

@@ -3,5 +3,5 @@
 interface ProductInterface
 {
     public function createProduct($connection);
-    public function deleteProduct($sku);
+    public function deleteProduct($connection);
 }

@@ -18,13 +18,17 @@ const ProductList = () => {
 
     return (
         <>
-            <Layout style={{minHeight: 1000}}>
-                <Header>
-                    <Row justify={'space-between'}>
-                        <Title style={{color: 'white', maxHeight: 64}}>Product List</Title>
+            <Layout style={{minHeight: 1000, backgroundColor: "#fff"}}>
+                <Header style={
+                    {
+                        borderBlock: "none",
+                        backgroundColor: "#fff",
+                        margin: '2% 5%',
+                    }
+                }>
+                    <Row justify={'space-between'} style={{borderBottom: "2px solid black"}}>
+                        <Title>Product List</Title>
                         <Menu
-                            style={{maxHeight: 64}}
-                            theme="dark"
                             mode="horizontal"
                         >
                             <Menu.Item key="add">
@@ -42,14 +46,14 @@ const ProductList = () => {
                         </Menu>
                     </Row>
                 </Header>
-                <Content style={{padding: '2% 10%', margin: '3% 0', backgroundColor: "#fff"}}>
+                <Content style={{margin: '0 5%', backgroundColor: "#fff", borderBottom: "2px solid black"}}>
                     <Row gutter={[16, 16]}>
                         {
                             <Products/>
                         }
                     </Row>
                 </Content>
-                <Footer style={{textAlign: "center"}}>Scandiweb Test assigment</Footer>
+                <Footer style={{textAlign: "center", backgroundColor: "#fff"}}>Scandiweb Test assigment</Footer>
             </Layout>
 
         </>

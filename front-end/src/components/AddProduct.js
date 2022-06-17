@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {createProduct, loadingProducts} from "../redux/actions";
 import {useNavigate} from "react-router-dom";
 import {Option} from "antd/es/mentions";
+// import {Option} from "antd/es/mentions";
 
 const productTypeData = ['Book', 'DVD', 'Furniture'];
 
@@ -145,13 +146,18 @@ const AddProduct = () => {
     }
     return (
         <>
-            <Layout style={{minHeight: 1000}}>
-                <Header>
-                    <Row justify={'space-between'}>
-                        <Title style={{color: 'white'}}>Product Add</Title>
+            <Layout style={{minHeight: 1000, backgroundColor: "#fff"}}>
+                <Header style={
+                    {
+                        borderBlock: "none",
+                        backgroundColor: "#fff",
+                        margin: '2% 5%',
+                    }
+                }>
+                    <Row justify={'space-between'} style={{borderBottom: "2px solid black"}}>
+                        <Title>Product Add</Title>
                         <Menu
-                            style={{maxHeight: 64, minWidth: 300}}
-                            theme="dark"
+                            style={{minWidth: "15%"}}
                             mode="horizontal"
                         >
                             <Menu.Item key="save">
@@ -167,7 +173,7 @@ const AddProduct = () => {
                         </Menu>
                     </Row>
                 </Header>
-                <Content style={{padding: '2% 10%', margin: '3% 0', backgroundColor: "#fff"}}>
+                <Content style={{margin: '0 5%', backgroundColor: "#fff", borderBottom: "2px solid black"}}>
                     <Form
                         labelCol={{span: 2}}
                         wrapperCol={{span: 4}}
@@ -225,38 +231,23 @@ const AddProduct = () => {
                         <Form.Item
                             label="Type Switcher"
                             name="productType"
-                            rules={[{required: true, message: 'Please input your price!'}]}
+                            rules={[{required: true, message: 'Please input your product type!'}]}
                         >
-                            {
-                                /*
-                                     This code doesn't see AutoQA but it makes our life easy)
-                                     <>
-                                        <Select id={'productType'} onChange={handleOnChange}>
-                                        {
-                                            productTypeData.map(data => (
-                                                    <Option key={data} value={data}>{data}</Option>
-                                                )
-                                            )
-                                        }
-                                        </Select>
-                                    </>
-                                 */
-                            }
-                            <select name="productType" id="productType" onChange={handleOnChange}>
+                            <Select name="productType" id="productType" onChange={handleOnChange}>
                                 {
                                     productTypeData.map(data => (
-                                            <option key={data} value={data}>{data}</option>
+                                            <Option key={data} value={data}>{data}</Option>
                                         )
                                     )
                                 }
-                            </select>
+                            </Select>
                         </Form.Item>
                         {
                             productTypeSpecific()
                         }
                     </Form>
                 </Content>
-                <Footer style={{textAlign: "center"}}>
+                <Footer style={{textAlign: "center", backgroundColor: "#fff"}}>
                     Scandiweb Test assigment
                 </Footer>
             </Layout>

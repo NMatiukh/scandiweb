@@ -8,6 +8,8 @@ import {
 } from "./types";
 import axios from "axios";
 
+const URL = 'https://scandiwebtesttasknmaitukh.000webhostapp.com/back-end/';
+
 
 export function createProduct(newProduct) {
     return async dispatch => {
@@ -18,7 +20,7 @@ export function createProduct(newProduct) {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json',
                 },
-                url: 'https://scandiwebtesttasknmaitukh.000webhostapp.com/back-end/?action=createProduct',
+                url: URL + '?action=createProduct',
                 data: newProduct,
             })
             .then(response => {
@@ -35,7 +37,7 @@ export function loadingProducts() {
     return async dispatch => {
         dispatch(showLoadingProductsLoader())
         axios
-            .get('https://scandiwebtesttasknmaitukh.000webhostapp.com/back-end/?action=getProducts')
+            .get(URL+'?action=getProducts')
             .then(response => {
                 dispatch({type: LOADING_PRODUCTS, payload: response.data});
                 dispatch(hideLoadingProductsLoader())
@@ -51,7 +53,7 @@ export function deleteProduct(products) {
         axios
             .request({
                 method: "POST",
-                url: `https://scandiwebtesttasknmaitukh.000webhostapp.com/back-end/?action=deleteProducts`,
+                url: URL+`/?action=deleteProducts`,
                 data: products,
             })
             .then((response) => {
