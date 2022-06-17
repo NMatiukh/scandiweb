@@ -35,7 +35,7 @@ class Book extends Product
         $price = $this->getPrice();
         $productType = $this->getProductType();
         $weight = $this->getWeight();
-        $query = "INSERT INTO Books (sku, name, price, productType, weight)VALUES('$sku', '$name', '$price', '$productType', '$weight')";
+        $query = "INSERT INTO Book (sku, name, price, productType, weight)VALUES('$sku', '$name', '$price', '$productType', '$weight')";
         if (mysqli_query($connection, $query)) {
             return print_r(json_encode(array("success" => true, "Info" => "Data has been inserted")));
         }

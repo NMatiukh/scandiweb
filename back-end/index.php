@@ -51,7 +51,7 @@ if ($request_method == "GET") {
     $connection = $db->getConnection();
     switch ($action) {
         case "getProducts":
-            $arr = getArrOfItem('Books', $connection, $arr);
+            $arr = getArrOfItem('Book', $connection, $arr);
             $arr = getArrOfItem('DVD', $connection, $arr);
             $arr = getArrOfItem("Furniture", $connection, $arr);
             usort($arr, function ($a, $b) {

@@ -16,7 +16,7 @@ const AddProduct = () => {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.allProducts);
     const [form] = Form.useForm();
-    const [productType, setProductType] = useState(productTypeData[0]);
+    const [productType, setProductType] = useState();
     const onFinish = (values) => {
         dispatch(createProduct(values))
         navigate('/');
@@ -25,8 +25,8 @@ const AddProduct = () => {
         form.submit();
     }
     const handleOnChange = (value) => {
-        console.log(value.target.value)
-        setProductType(value.target.value)
+        console.log(value)
+        setProductType(value)
     }
     useEffect(() => {
         dispatch(loadingProducts())
