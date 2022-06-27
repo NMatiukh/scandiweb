@@ -27,18 +27,4 @@ class Book extends Product
             echo $exception;
         }
     }
-
-    public function createProduct($connection)
-    {
-        $sku = $this->getSku();
-        $name = $this->getName();
-        $price = $this->getPrice();
-        $productType = $this->getProductType();
-        $weight = $this->getWeight();
-        $query = "INSERT INTO Book (sku, name, price, productType, weight)VALUES('$sku', '$name', '$price', '$productType', '$weight')";
-        if (mysqli_query($connection, $query)) {
-            return print_r(json_encode(array("success" => true, "Info" => "Data has been inserted")));
-        }
-    }
-
 }

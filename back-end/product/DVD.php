@@ -26,17 +26,4 @@ class DVD extends Product
             echo $exception;
         }
     }
-
-    public function createProduct($connection)
-    {
-        $sku = $this->getSku();
-        $name = $this->getName();
-        $price = $this->getPrice();
-        $productType = $this->getProductType();
-        $size = $this->getSize();
-        $query = "INSERT INTO DVD (sku, name, price, productType, size)VALUES('$sku', '$name', '$price', '$productType', '$size')";
-        if (mysqli_query($connection, $query)) {
-            return print_r(json_encode(array("success" => true, "Info" => "Data has been inserted")));
-        }
-    }
 }

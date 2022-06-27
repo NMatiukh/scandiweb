@@ -50,18 +50,4 @@ class Furniture extends Product
             echo $exception;
         }
     }
-    public function createProduct($connection)
-    {
-        $sku = $this->getSku();
-        $name = $this->getName();
-        $price = $this->getPrice();
-        $productType = $this->getProductType();
-        $height = $this->getHeight();
-        $width = $this->getWidth();
-        $length = $this->getLength();
-        $query = "INSERT INTO Furniture (sku, name, price, productType, height, width, length)VALUES('$sku', '$name', '$price', '$productType', '$height', '$width', '$length')";
-        if (mysqli_query($connection, $query)) {
-            return print_r(json_encode(array("success" => true, "Info" => "Data has been inserted")));
-        }
-    }
 }
